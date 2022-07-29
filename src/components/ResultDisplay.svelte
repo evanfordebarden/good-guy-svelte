@@ -11,18 +11,17 @@
   const getResponse = () => {
     const max = $ResponseStore.length;
     const randomIdx = Math.floor(Math.random() * max);
-    response =
-      $NameStore.name === "Keanu Reeves"
-        ? {
-            name: $NameStore.name,
-            message: "You know what? Yeah, that guy is good.",
-          }
-        : { name: $NameStore.name, message: $ResponseStore[randomIdx] };
+    response = $NameStore.isGood
+      ? {
+          name: $NameStore.name,
+          message: "You know what? Yeah, that guy is good.",
+        }
+      : { name: $NameStore.name, message: $ResponseStore[randomIdx] };
   };
 
   onMount(getResponse);
   afterUpdate(getResponse);
-  // onDestroy(() => (response = {}));
+  onDestroy(() => (response = {}));
 </script>
 
 <svelte:window on:keydown on:click />
@@ -32,4 +31,9 @@
 </div>
 
 <style>
+  h3 {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    /* font-size: larger; */
+  }
 </style>

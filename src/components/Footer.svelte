@@ -20,11 +20,10 @@
     bottom: 0;
     display: flex;
     width: 100%;
-    /* border: 1px solid black; */
     justify-content: center;
   }
   .credits {
-    color: #aaa;
+    color: rgb(70, 79, 103);
     font-size: 0.6em;
     display: inline-block;
     padding: 1.2em;

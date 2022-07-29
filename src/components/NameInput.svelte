@@ -8,14 +8,12 @@
   let enteredName = "";
 
   const submitHandler = () => {
-    let newName = { name: enteredName };
-    NameStore.set(newName);
-    // console.log($NameStore.name);
+    // let newName = { name: enteredName };
+    $NameStore.name = enteredName;
     dispatch("submitName");
   };
 
   onMount(() => {
-    console.log("mounted");
     nameInput.focus();
   });
 </script>
