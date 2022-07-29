@@ -4,7 +4,7 @@ const ResponseStore = writable([
   "No, not a good guy.",
   "So sorry but that guy stinks.",
   "Seriously? No way is that guy good.",
-  "Unfortunately, that's a bad guy.",
+  "Unfortunately, that guy is bad.",
   "Hate to be the bearer of bad news, but it's best you hear it from us first. No!",
   "Nope!",
   "hahaha! that guy?? lol no.",

@@ -3,25 +3,34 @@
   import Header from "./components/Header.svelte";
   import Footer from "./components/Footer.svelte";
   import ResultDisplay from "./components/ResultDisplay.svelte";
+  import NameStore from "./stores/NameStore";
 
   let hasResult = false;
 
   const handleSubmit = (e) => {
     console.log("submitted");
-    hasResult = false;
+    // hasResult = false;
     hasResult = true;
+  };
+
+  const handleClick = (e) => {
+    console.log("clicked");
+    hasResult = false;
+    NameStore.set({ name: "" });
   };
 </script>
 
 <Header />
 <main>
   <p>
-    Guys are hard to trust. That's why we built this website. <br />Enter a name
-    and get an answer.
+    Most guys are bad. That's why we built this website. <br />Enter a name and
+    get an answer.
   </p>
-  <NameInput on:submitName={handleSubmit} />
-  {#if hasResult}
-    <ResultDisplay />
+
+  {#if $NameStore.name !== ""}
+    <ResultDisplay on:click={handleClick} on:keydown={handleClick} />
+  {:else}
+    <NameInput on:submitName={handleSubmit} />
   {/if}
 </main>
 <Footer />

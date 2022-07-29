@@ -1,7 +1,7 @@
 <script>
   import { onDestroy, onMount, afterUpdate } from "svelte";
   import { fade, slide, scale, fly } from "svelte/transition";
-  import { flip } from "svelte/animate";
+  // import { flip } from "svelte/animate";
   import ResponseStore from "../stores/ResponseStore";
   import NameStore from "../stores/NameStore";
 
@@ -24,6 +24,8 @@
   afterUpdate(getResponse);
   // onDestroy(() => (response = {}));
 </script>
+
+<svelte:window on:keydown on:click />
 
 <div class="result" in:scale={{ duration: 1000 }}>
   <h3>{response.name}?<br />{response.message}</h3>
