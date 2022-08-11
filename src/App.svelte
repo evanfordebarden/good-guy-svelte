@@ -10,7 +10,7 @@
   let loading = false;
 
   const handleSubmit = (e) => {
-    const isGuyGood = $NameStore.name === "Keanu Reeves";
+    const isGuyGood = $NameStore.name === "Brendan Frasier";
     loading = true;
 
     setTimeout(() => {
