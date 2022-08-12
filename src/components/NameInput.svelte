@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
   import { createEventDispatcher } from "svelte";
 
-  let nameInput;
+  // let nameInput;
   let dispatch = createEventDispatcher();
   let enteredName = "";
 
@@ -13,19 +13,17 @@
     dispatch("submitName");
   };
 
-  onMount(() => {
-    nameInput.focus();
-  });
+  // onMount(() => {
+  //   nameInput.focus();
+  // });
 </script>
 
+<svelte:window on:keydown />
+
+<!-- bind:this={nameInput} -->
 <div>
   <form on:submit|preventDefault={submitHandler}>
-    <input
-      bind:this={nameInput}
-      type="text"
-      placeholder="enter a name"
-      bind:value={enteredName}
-    />
+    <input type="text" placeholder="enter a name" bind:value={enteredName} />
     <!-- <p>{name}</p> -->
   </form>
 </div>

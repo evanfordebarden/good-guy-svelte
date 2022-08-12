@@ -13,9 +13,10 @@ Created by @samvgm "https://twitter.com/samvgm" -->
 
 <style>
   #loader {
-    width: 90px;
+    width: 75px; /*90*/
     height: 40px;
-    transform: scale(2);
+    transform: scale(3);
+    /* border: solid black 1px; */
   }
 
   .lightsaber {

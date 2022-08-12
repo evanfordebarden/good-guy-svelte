@@ -2,6 +2,7 @@
   import { onDestroy, onMount, afterUpdate } from "svelte";
   import { fade, slide, scale, fly } from "svelte/transition";
   // import { flip } from "svelte/animate";
+  import SecondOpinion from "./SecondOpinion.svelte";
   import ResponseStore from "../stores/ResponseStore";
   import NameStore from "../stores/NameStore";
 
@@ -20,20 +21,31 @@
   };
 
   onMount(getResponse);
-  afterUpdate(getResponse);
+  // afterUpdate(getResponse);
   onDestroy(() => (response = {}));
 </script>
 
 <svelte:window on:keydown on:click />
 
 <div class="result" in:scale={{ duration: 1000 }}>
-  <h3>{response.name}?<br />{response.message}</h3>
+  <p>{response.name}?<br />{response.message}</p>
+  <SecondOpinion on:click />
 </div>
 
 <style>
-  h3 {
+  .result {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 0.5px solid black;
+  }
+  p {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
       sans-serif;
-    /* font-size: larger; */
+    font-size: larger;
+    font-weight: bold;
+    /* margin: 0; */
   }
 </style>

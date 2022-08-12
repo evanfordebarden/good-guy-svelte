@@ -27,7 +27,7 @@ export default ResponseStore;
 // const getMessages = async () => {
 //   let messages = writable([]);
 //   try {
-//     let { data } = await axios.get(`http://localhost:1337/api/responses/`);
+//     let { data } = await axios.get(`http://localhost:8080/api/responses/`);
 //     return messages.set([...data]);
 //   } catch (err) {
 //     console.error("error", err);

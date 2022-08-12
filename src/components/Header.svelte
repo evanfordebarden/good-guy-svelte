@@ -1,6 +1,5 @@
 <script>
   import NameStore from "../stores/NameStore";
-  console.log($NameStore.isGood);
 </script>
 
 <header class={$NameStore.isGood ? "good" : "bad"}>
