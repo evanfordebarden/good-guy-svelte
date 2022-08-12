@@ -29,7 +29,10 @@
       "modal-wrapper",
       "modal",
     ];
-    if (!ignoredTargetIds.includes(e.target.id)) {
+    if (
+      !ignoredTargetIds.includes(e.target.id) &&
+      !Object.values(e.target.classList).includes("modal-elem")
+    ) {
       NameStore.set({ name: "", isGood: true });
     }
   };
@@ -63,9 +66,15 @@
   </div>
 </Card>
 <SecondOpinionModal bind:this={modal} bind:shown>
-  <h2>Modal title</h2>
-  <p>Modal content.</p>
-  <button id="close-button" on:click={modal.hide}>Close</button>
+  <h2 class="modal-elem">We're actually pretty sure.</h2>
+  <p class="modal-elem">
+    Just...think for like three minutes. Are you sure this guy is good? Like
+    really really? So many guys have done really bad things and never told a
+    single person. If they're "nice" or "charming?" Yikes. Look out. Almost
+    definitely bad.
+  </p>
+  <button id="close-button" on:click={modal.hide}>I understand. I agree.</button
+  >
 </SecondOpinionModal>
 <Footer />
 

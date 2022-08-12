@@ -1,6 +1,7 @@
 <script>
   import { createEventDispatcher, onMount } from "svelte";
   import { fly } from "svelte/transition";
+  import App from "../App.svelte";
   const dispatch = createEventDispatcher();
 
   let showSecondOpinion = false;
@@ -8,7 +9,7 @@
   onMount(() => {
     setTimeout(() => {
       showSecondOpinion = true;
-    }, 3000);
+    }, 2000);
   });
 
   function openModal() {

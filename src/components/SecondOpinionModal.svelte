@@ -30,11 +30,13 @@
   }
   .modal {
     background-color: white;
-    max-width: 60vw;
+    max-width: 40vw;
     padding: 1rem;
     margin: 15% auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    border-radius: 6px;
   }
 </style>
