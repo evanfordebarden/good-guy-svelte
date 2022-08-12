@@ -1,28 +1,18 @@
 <script>
-  let shown = false;
+  export let shown;
 
   export function show() {
     shown = true;
   }
 
   export function hide(e) {
-    console.log(e.target);
     shown = false;
   }
 </script>
 
-<svelte:window
-  on:keydown={(e) => {
-    if (e.keyCode == 27) {
-      hide();
-    }
-  }}
-/>
-
 {#if shown}
-  <div class="modal-wrapper">
-    <div class="modal">
-      <span class="close" on:click={() => hide()}>&times;</span>
+  <div id="modal-wrapper" class="modal-wrapper">
+    <div id="modal" class="modal">
       <slot />
     </div>
   </div>
@@ -46,12 +36,5 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  .close {
-    float: right;
-  }
-  .close:hover {
-    font-weight: bold;
-    cursor: default;
   }
 </style>

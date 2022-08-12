@@ -10,6 +10,7 @@
 
   let loading = false;
   let modal;
+  let shown = false;
 
   const handleSubmit = (e) => {
     const isGuyGood = $NameStore.name === "Brendan Frasier";
@@ -22,10 +23,21 @@
   };
 
   const handleClick = (e) => {
-    console.log(e.target.id);
-    // if (e.target.id !== "second-oninion") {
-    NameStore.set({ name: "", isGood: true });
-    // }
+    let ignoredTargetIds = [
+      "second-opinion",
+      "close-button",
+      "modal-wrapper",
+      "modal",
+    ];
+    if (!ignoredTargetIds.includes(e.target.id)) {
+      NameStore.set({ name: "", isGood: true });
+    }
+  };
+
+  const handleKeydown = (e) => {
+    if (!shown) {
+      NameStore.set({ name: "", isGood: true });
+    }
   };
 </script>
 
@@ -40,8 +52,8 @@
     {#if !loading && $NameStore.name !== ""}
       <ResultDisplay
         on:click={handleClick}
-        on:keydown={handleClick}
-        on:click={() => modal.show()}
+        on:keydown={handleKeydown}
+        on:secOpModal={() => modal.show()}
       />
     {:else if loading}
       <LightLoader />
@@ -50,10 +62,10 @@
     {/if}
   </div>
 </Card>
-<SecondOpinionModal bind:this={modal}>
+<SecondOpinionModal bind:this={modal} bind:shown>
   <h2>Modal title</h2>
   <p>Modal content.</p>
-  <button on:click={modal.hide}>Close</button>
+  <button id="close-button" on:click={modal.hide}>Close</button>
 </SecondOpinionModal>
 <Footer />
 
@@ -64,7 +76,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    border: 0.5px solid lime;
+    /* border: 0.5px solid lime; */
   }
 
   p {

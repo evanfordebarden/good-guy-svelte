@@ -29,7 +29,7 @@
 
 <div class="result" in:scale={{ duration: 1000 }}>
   <p>{response.name}?<br />{response.message}</p>
-  <SecondOpinion on:click />
+  <SecondOpinion on:secOpModal />
 </div>
 
 <style>
@@ -39,13 +39,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    border: 0.5px solid black;
+    /* border: 0.5px solid black; */
   }
   p {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
       sans-serif;
     font-size: larger;
     font-weight: bold;
-    /* margin: 0; */
+    margin-top: 1em;
   }
 </style>

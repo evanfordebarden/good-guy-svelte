@@ -18,8 +18,6 @@
   // });
 </script>
 
-<svelte:window on:keydown />
-
 <!-- bind:this={nameInput} -->
 <div>
   <form on:submit|preventDefault={submitHandler}>

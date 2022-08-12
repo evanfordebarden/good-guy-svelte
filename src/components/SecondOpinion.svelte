@@ -1,6 +1,29 @@
-<script></script>
+<script>
+  import { createEventDispatcher, onMount } from "svelte";
+  import { fly } from "svelte/transition";
+  const dispatch = createEventDispatcher();
 
-<button id="second-opinion" on:click>But...I think this guy is good. </button>
+  let showSecondOpinion = false;
+
+  onMount(() => {
+    setTimeout(() => {
+      showSecondOpinion = true;
+    }, 3000);
+  });
+
+  function openModal() {
+    dispatch("secOpModal");
+  }
+</script>
+
+{#if showSecondOpinion}
+  <button
+    id="second-opinion"
+    on:click|self={openModal}
+    in:fly={{ y: 30, duration: 1000 }}
+    >But...I think this guy is good.
+  </button>
+{/if}
 
 <style>
   button {
