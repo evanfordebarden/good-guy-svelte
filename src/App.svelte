@@ -13,13 +13,21 @@
   let shown = false;
 
   const handleSubmit = (e) => {
-    const isGuyGood = $NameStore.name === "Brendan Frasier";
+    const isGuyGood = $NameStore.name === "Brendan Fraser";
     loading = true;
 
     setTimeout(() => {
       loading = false;
       if (!isGuyGood) $NameStore.isGood = false;
+      document.body.style.backgroundColor = $NameStore.isGood
+        ? "var(--good-background)"
+        : "var(--bad-background)";
     }, 2800);
+  };
+
+  const reset = () => {
+    NameStore.set({ name: "", isGood: true });
+    document.body.style.backgroundColor = "white";
   };
 
   const handleClick = (e) => {
@@ -32,15 +40,12 @@
     if (
       !ignoredTargetIds.includes(e.target.id) &&
       !Object.values(e.target.classList).includes("modal-elem")
-    ) {
-      NameStore.set({ name: "", isGood: true });
-    }
+    )
+      reset();
   };
 
   const handleKeydown = (e) => {
-    if (!shown) {
-      NameStore.set({ name: "", isGood: true });
-    }
+    if (!shown) reset();
   };
 </script>
 
@@ -70,7 +75,7 @@
   <p class="modal-elem">
     Just...think for like three minutes. Are you sure this guy is good? Like
     really really? So many guys have done really bad things and never told a
-    single person. If they're "nice" or "charming?" Yikes. Look out. Almost
+    single person. And if they're "nice" or "charming?" Yikes. Look out. Almost
     definitely bad.
   </p>
   <button id="close-button" on:click={modal.hide}>I understand. I agree.</button
@@ -92,5 +97,10 @@
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
       sans-serif;
     font-size: larger;
+  }
+
+  p.modal-elem {
+    padding-top: 0em;
+    margin-top: 0em;
   }
 </style>

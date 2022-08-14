@@ -28,11 +28,6 @@
 
 <style>
   button {
-    /* color: white; */
-    /* background: var(--bad-header); */
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-      sans-serif;
-    /* font-size: small; */
-    margin: 0;
+    font-size: small;
   }
 </style>

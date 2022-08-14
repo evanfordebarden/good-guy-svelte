@@ -15,7 +15,8 @@
     response = $NameStore.isGood
       ? {
           name: $NameStore.name,
-          message: "You know what? Yeah, that guy is good.",
+          message:
+            "You know what...yeah. Remarkably, that guy is actually good.",
         }
       : { name: $NameStore.name, message: $ResponseStore[randomIdx] };
   };
@@ -29,7 +30,9 @@
 
 <div class="result" in:scale={{ duration: 1000 }}>
   <p>{response.name}?<br />{response.message}</p>
-  <SecondOpinion on:secOpModal />
+  {#if !$NameStore.isGood}
+    <SecondOpinion on:secOpModal />
+  {/if}
 </div>
 
 <style>
