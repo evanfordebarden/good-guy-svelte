@@ -22,7 +22,6 @@
   };
 
   onMount(getResponse);
-  // afterUpdate(getResponse);
   onDestroy(() => (response = {}));
 </script>
 
@@ -30,7 +29,12 @@
 
 <div class="result" in:scale={{ duration: 1000 }}>
   <p>{response.name}?<br />{response.message}</p>
-  {#if !$NameStore.isGood}
+  {#if $NameStore.isGood}
+    <img
+      src="./img/BrendanFraser.svg"
+      alt="an illustration of Brendan Fraser"
+    />
+  {:else}
     <SecondOpinion on:secOpModal />
   {/if}
 </div>
@@ -42,8 +46,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    /* border: 0.5px solid black; */
   }
+
+  img {
+    max-height: 100px;
+  }
+
   p {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
       sans-serif;

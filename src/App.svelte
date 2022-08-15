@@ -13,7 +13,7 @@
   let shown = false;
 
   const handleSubmit = (e) => {
-    const isGuyGood = $NameStore.name === "Brendan Fraser";
+    const isGuyGood = $NameStore.name.toLowerCase() === "brendan fraser";
     loading = true;
 
     setTimeout(() => {
